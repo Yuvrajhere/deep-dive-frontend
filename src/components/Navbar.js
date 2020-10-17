@@ -1,34 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(true);
+
   return (
-    <nav className="">
-      <Link className="brand" href="#">
-        <h2>DeepDive</h2>
-      </Link>
-      <button className="navbar-toggler">{isOpen ? "X" : "☰"}</button>
-      <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link className="nav-link" href="#">
-              Home <span className="sr-only">(current)</span>
+    <div className="Navbar">
+      <nav className="Navbar-main">
+        <Link to="/" className="brand">
+          <h3>DeepDive</h3>
+        </Link>
+        <button
+          className="navbar-toggler"
+          onClick={() => setIsNavOpen(!isNavOpen)}
+        >
+          {isNavOpen ? "X" : "☰"}
+        </button>
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link to="/" className="nav-link">
+              Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" href="#">
-              Features
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" href="#">
-              Pricing
+            <Link to="/profile" className="nav-link">
+              Profile
             </Link>
           </li>
         </ul>
-        <span className="navbar-text">Navbar text with an inline element</span>
-      </div>
-    </nav>
+        <button className={isSignedIn ? "btn out" : "btn in"}>
+          {isSignedIn ? "Signout" : "Signin"}
+        </button>
+      </nav>
+    </div>
   );
 };
 

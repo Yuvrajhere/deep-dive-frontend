@@ -1,0 +1,29 @@
+.Navbar {
+  padding: 1% 15%;
+  background-color: var(--color-1);
+}
+
+.Navbar-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-toggler {
+  display: none;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 15%;
+}
+
+.in {
+  background-color: aquamarine;
+}
+
+.out {
+  background-color: brown;
+}
