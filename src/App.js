@@ -59,7 +59,6 @@ function App() {
     <Router>
       <div className="container">
         <Navbar isSignedIn={isSignedIn} signout={signout} />
-
         <Switch>
           <Route exact path="/create/post">
             <PostForm user={user} />

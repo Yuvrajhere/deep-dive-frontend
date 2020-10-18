@@ -31,7 +31,7 @@
   font-size: 1.3rem;
 }
 
-.PostForm form input {
+.PostForm form input, .PostForm form select {
   color: #000000;
   padding: 0.5% 2%;
   background-color: #ffffff4d;

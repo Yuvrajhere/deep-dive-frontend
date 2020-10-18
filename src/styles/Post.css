@@ -51,6 +51,7 @@
 
 .post-info-artist div h4 {
   color: var(--color-4);
+  margin-bottom: 2%;
 }
 
 .post-info-artist div p {

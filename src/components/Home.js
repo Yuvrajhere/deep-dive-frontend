@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import Post from "./Post";
 import axios from "axios";
+import homeSvg from "../assets/home-3.svg";
 
 const Home = (props) => {
   const [posts, setPosts] = useState([]);
+  const [test, setTest] = useState(true);
 
   const fetchPosts = () => {
     axios
@@ -38,16 +40,19 @@ const Home = (props) => {
         <div className="posts">
           {
             posts.map(post => {
-              return <Post post={post} />
+              return <Post post={post} user={props.user} test={test} setTest={setTest}/>
             })
           }
         </div>
     </div>
     ) : (
       <div className="Home-2">
-        <h2>Deep Dive</h2>
-        <p>Deep dive is a webapp made for people who want to promote under-rated artists.</p>
-        <button className="btn"><Link to="/signin">Signin here</Link></button>
+        <div>
+          <h2>Deep Dive</h2>
+          <p>Deep dive is a webapp made for people who want to promote under-rated artists.</p>
+          <button className="btn"><Link to="/signin">Signin here</Link></button>
+        </div>
+        <img src={homeSvg} alt="share" />
       </div>
     )
   );

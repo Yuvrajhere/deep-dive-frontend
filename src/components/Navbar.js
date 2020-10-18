@@ -27,11 +27,11 @@ const Navbar = (props) => {
               Home
             </Link>
           </li>
-          <li className="nav-item">
+          { props.isSignedIn ? <li className="nav-item">
             <Link to="/profile" className="nav-link">
               Profile
             </Link>
-          </li>
+          </li> : null }
         </ul>
         <button onClick={handleSignoutClick} className={props.isSignedIn ? "btn out" : "btn in"}>
           <Link to={props.isSignedIn ? "/" : "/signin"}>{props.isSignedIn ? "Signout" : "Signin"}</Link>

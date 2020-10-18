@@ -1,30 +1,117 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import "../styles/PostForm.css";
 
-const PostForm = () => {
+const PostForm = (props) => {
+
+  const [categories, setCategories] = useState([]);
+
+  const [postData, setPostData] = useState({
+    heading: "",
+    description: "",
+    artist: "",
+    contentLink: "",
+    category: ""
+  })
+
+  const handleInputChange = e => {
+    setPostData({
+      ...postData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handlePostSubmit = e => {
+    e.preventDefault();
+    console.log(postData);
+    axios
+      .post("http://localhost:5000/api/post/create/"+props.user._id, postData)
+      .then(res => {
+        if(res.error) {
+          alert("Error", res.error);
+        } else {
+          setPostData({
+            heading: "",
+            description: "",
+            artist: "",
+            contentLink: "",
+            category: ""
+          });
+        }
+      });
+  }
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/categories")
+      .then(res => {
+        if(res.error) {
+          alert("Error", res.error);
+        } else {
+          setCategories(res.data);
+        }
+      })
+  }, []);
+
+
   return (
     <div className="PostForm">
-      <form>
+      <form onSubmit={handlePostSubmit}>
         <h3>Post about your artist.</h3>
         <div>
-          <label>Heading</label>
-          <input />
+          <label for="heading">Heading</label>
+          <input
+            type="text"
+            id="heading"
+            name="heading"
+            value={postData.heading}
+            onChange={handleInputChange}
+            autoComplete="off" />
         </div>
         <div>
-          <label>Description</label>
-          <input />
+          <label for="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={postData.description}
+            onChange={handleInputChange}
+            autoComplete="off" />
         </div>
         <div>
-          <label>Artist name</label>
-          <input />
+          <label for="artist">Artist name</label>
+          <input
+            type="text"
+            id="artist"
+            name="artist"
+            value={postData.artist}
+            onChange={handleInputChange}
+            autoComplete="off" />
         </div>
         <div>
-          <label>Category</label>
-          <input />
+          <label for="category">Category</label>
+          <select 
+            id="category" 
+            name="category"
+            value={postData.category}
+            onChange={handleInputChange} >
+              <option value="">select</option>
+              {
+                categories.map(item => {
+                  return <option value={item._id}>{item.name}</option>
+                })
+              }
+          </select>
         </div>
         <div>
-          <label>Content link</label>
-          <input />
+          <label for="contentLink">Content link</label>
+          <input
+            type="text"
+            id="contentLink"
+            name="contentLink"
+            value={postData.contentLink}
+            onChange={handleInputChange}
+            autoComplete="off" />
         </div>
         <button className="btn post">Post</button>
       </form>

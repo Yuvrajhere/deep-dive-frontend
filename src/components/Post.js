@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Post.css";
+import axios from "axios";
 
-const Post = ({ post }) => {
+const Post = ({ post, user, test, setTest }) => {
+
+  const [commentData, setCommentData] = useState({
+    text: ""
+  })
+
+  const handleInputChange = e => {
+    setCommentData({
+      text: e.target.value
+    });
+  };
+
+  const handleSendSubmit = e => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/post/" + post._id + "/" + user._id + "/comment", commentData)
+      .then(res => {
+        if(res.error) {
+          alert("Error", res.error);
+        } else {
+          setCommentData({
+            text: ""
+          });
+          setTest(!test);
+        }
+      })
+  }
+
   return (
     <div className="Post">
       <div className="post-info">
@@ -17,7 +45,7 @@ const Post = ({ post }) => {
             <h4>{post.artist}</h4>
             <p>{post.category.name}</p>
           </div>
-          <p>{post.contentLink}</p>
+          <a href={post.contentLink}>{post.contentLink}</a>
         </div>
       </div>
       <div className="comment-section">
@@ -28,14 +56,20 @@ const Post = ({ post }) => {
               return (
                 <div className="comment">
                   <p className="comment-text">{item.text}</p>
-                  <p className="comment-user">- {item.postedBy.username}</p>
+                  <p className="comment-user">- {item.userName}</p>
                 </div>
               );
             })}
           </div>
         </div>
-        <form className="comment-box">
-          <input type="text" />
+        <form onSubmit={handleSendSubmit} className="comment-box">
+          <input
+            type="text"
+            name="text"
+            id="text"
+            autoComplete="off"
+            onChange={handleInputChange}
+            value={commentData.text} />
           <button className="cmnt">Send</button>
         </form>
       </div>
