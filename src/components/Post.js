@@ -32,21 +32,6 @@ const Post = ({ post }) => {
                 </div>
               );
             })}
-            <p>
-              It is a good platform to learn programming. It is an educational
-              website. Prepare for the Recruitment drive of product based
-              companies like Microsoft, Amazon, Adobe etc with a free online
-              placement preparation course. The course focuses on various MCQ's
-              & Coding question likely to be asked in the interviews & make your
-              upcoming placement season efficient and successful. Also, any
-              geeks can help other geeks by writing articles on the
-              GeeksforGeeks, publishing articles follow few steps that are
-              Articles that need little modification/improvement from reviewers
-              are published first. To quickly get your articles reviewed, please
-              refer existing articles, their formatting style, coding style, and
-              try to make you are close to them. In case you are a beginner, you
-              may refer Guidelines to{" "}
-            </p>
           </div>
         </div>
         <form className="comment-box">
@@ -57,25 +42,5 @@ const Post = ({ post }) => {
     </div>
   );
 };
-
-// {
-//   heading: "Amazing artist",
-//   description : "I saw his videos yesterday and I really liked it. A briliant musician, lyricist and singer.",
-//   category: "music",
-//   artist: "Anuv Jain",
-//   contentLink: "https://www.youtube.com/channel/UCafUh796DToiY2U3s7X_WTw",
-//   postedBy: "Yuvrajhere",
-//   comment: [
-//     {
-//       text: "Wow",
-//       postedBy: "pikapika"
-//     },
-//     {
-//       text: "Awesome, I think he is good.",
-//       postedBy: "nihal"
-//     }
-//   ],
-//   createdAt: new Date("2020-10-17T07:48:15.457+00:0")
-// },
 
 export default Post;

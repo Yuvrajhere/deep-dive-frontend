@@ -8,6 +8,7 @@ import {
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import PostForm from "./components/PostForm";
 import "./App.css";
 
 
@@ -18,10 +19,13 @@ function App() {
         <Navbar />
 
         <Switch>
-          <Route path="/profile">
+          <Route exact path="/create/post">
+            <PostForm />
+          </Route>
+          <Route exact path="/profile">
             <Profile />
           </Route>
-          <Route>
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>
