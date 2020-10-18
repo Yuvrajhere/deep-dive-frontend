@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Signin.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Signup = (props) => {
+
+  let history = useHistory();
 
   const [userData, setUserData] = useState({
     username: "",
@@ -13,12 +15,13 @@ const Signup = (props) => {
 
   const signup = (userData) => {
     axios
-      .post("http://localhost:5000/api/signup", userData)
+      .post("https://deeep-dive.herokuapp.com/api/signup", userData)
       .then(res => {
         if(res.error) {
           alert("Error: ", res.error);
         } else {
           console.log(res.data);
+          history.push("/signin");
         }
       })
   }

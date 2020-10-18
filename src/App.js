@@ -3,8 +3,7 @@ import {
   BrowserRouter as Router,
   Link,
   Route,
-  Switch,
-  useHistory
+  Switch
 } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./components/Navbar";
@@ -18,15 +17,13 @@ import "./App.css";
 
 function App() {
 
-  const history = useHistory();
-
   const [user, setUser] = useState({});
 
   const [isSignedIn, setIsSignedIn] = useState(localStorage.getItem("isSignedIn"));
 
   const signin = (userData) => {
     axios
-      .post("http://localhost:5000/api/signin", userData)
+      .post("https://deeep-dive.herokuapp.com/api/signin", userData)
       .then(res => {
         if(res.error) {
           setIsSignedIn(false);
@@ -37,7 +34,7 @@ function App() {
           setUser(res.data.user);
           setIsSignedIn("true");
           localStorage.setItem("isSignedIn", true);
-          localStorage.setItem("user", JSON.stringify(res.data.user))
+          localStorage.setItem("user", JSON.stringify(res.data.user));
         }
       });
   }

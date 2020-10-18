@@ -17,7 +17,7 @@ const Post = ({ post, user, test, setTest }) => {
   const handleSendSubmit = e => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/post/" + post._id + "/" + user._id + "/comment", commentData)
+      .post("https://deeep-dive.herokuapp.com/api/post/" + post._id + "/" + user._id + "/comment", commentData)
       .then(res => {
         if(res.error) {
           alert("Error", res.error);
@@ -26,6 +26,7 @@ const Post = ({ post, user, test, setTest }) => {
             text: ""
           });
           setTest(!test);
+          window.location.reload();
         }
       })
   }

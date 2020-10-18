@@ -11,7 +11,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/post/" + props.user._id)
+      .get("https://deeep-dive.herokuapp.com/api/post/" + props.user._id)
       .then(res => {
         if(res.error) {
           alert("Error",res.error)

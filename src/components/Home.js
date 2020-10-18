@@ -11,7 +11,7 @@ const Home = (props) => {
 
   const fetchPosts = () => {
     axios
-      .get("http://localhost:5000/api/post/all")
+      .get("https://deeep-dive.herokuapp.com/api/post/all")
       .then(res => {
         if(res.error) {
           alert("Error occured in fetching data!");
@@ -49,7 +49,7 @@ const Home = (props) => {
       <div className="Home-2">
         <div>
           <h2>Deep Dive</h2>
-          <p>Deep dive is a webapp made for people who want to promote under-rated artists.</p>
+          <p>Deep dive is a webapp made for people who want to promote under-rated artists, educators and other hardworking talented people.</p>
           <button className="btn"><Link to="/signin">Signin here</Link></button>
         </div>
         <img src={homeSvg} alt="share" />

@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 
 const Signin = (props) => {
 
-  // const history = useHistory();
+  let history = useHistory();
 
   const [userData, setUserData] = useState({
     email: "",
@@ -24,7 +24,8 @@ const Signin = (props) => {
     setUserData({
       email: "",
       password: ""
-    })
+    });
+    history.push("/");
   }
 
   return (

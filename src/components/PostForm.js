@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "../styles/PostForm.css";
 
 const PostForm = (props) => {
+
+  let history = useHistory();
 
   const [categories, setCategories] = useState([]);
 
@@ -25,7 +28,7 @@ const PostForm = (props) => {
     e.preventDefault();
     console.log(postData);
     axios
-      .post("http://localhost:5000/api/post/create/"+props.user._id, postData)
+      .post("https://deeep-dive.herokuapp.com/api/post/create/"+props.user._id, postData)
       .then(res => {
         if(res.error) {
           alert("Error", res.error);
@@ -37,13 +40,14 @@ const PostForm = (props) => {
             contentLink: "",
             category: ""
           });
+          history.push("/");
         }
       });
   }
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/categories")
+      .get("https://deeep-dive.herokuapp.com/api/categories")
       .then(res => {
         if(res.error) {
           alert("Error", res.error);
