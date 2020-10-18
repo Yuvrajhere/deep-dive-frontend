@@ -42,7 +42,7 @@ h4 {
 
 a {
   font-size: 1.3rem;
-  color: var(--color-4);
+  color: #ffffff;
 }
 
 a:hover {
@@ -50,16 +50,18 @@ a:hover {
 }
 
 p {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .btn {
-  padding: 10px 16px;
+  padding: 10px 20px;
   font-size: 1.1rem;
   width: auto;
   cursor: pointer;
   border: none;
   border: 2px solid var(--color-4);
+  color: #ffffff;
+  border-radius: 20px;
 }
 
 .btn:focus {

@@ -1,21 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Signin.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
-const Signin = () => {
+const Signin = (props) => {
+
+  // const history = useHistory();
+
+  const [userData, setUserData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const handleInputChange = e => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.signin(userData);
+    setUserData({
+      email: "",
+      password: ""
+    })
+  }
+
   return (
     <div className="Signin">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Signin</h3>
         <div>
-          <label>Email</label>
-          <input />
+          <label for="email">Email</label>
+          <input 
+            type="text"
+            autoComplete="off"
+            value={userData.email}
+            name="email"
+            id="email"
+            onChange={handleInputChange}/>
         </div>
         <div>
-          <label>Password</label>
-          <input />
+          <label for="password">Password</label>
+          <input 
+            type="password"
+            autoComplete="off"
+            value={userData.password}
+            name="password"
+            id="password"
+            onChange={handleInputChange}/>
         </div>
-        <button className="btn post">Post</button>
+        <button className="btn post">Signin</button>
         <p>Dont have an account yet?</p>
         <p><Link to="/signup">Sign Up here.</Link></p>
       </form>

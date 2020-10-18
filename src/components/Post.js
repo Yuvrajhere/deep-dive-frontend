@@ -8,14 +8,14 @@ const Post = ({ post }) => {
         <div className="post-info-user">
           <div>
             <h3>{post.heading}</h3>
-            <p>-{post.postedBy}</p>
+            <p>-{post.postedBy.username}</p>
           </div>
           <p>{post.description}</p>
         </div>
         <div className="post-info-artist">
           <div>
             <h4>{post.artist}</h4>
-            <p>{post.category}</p>
+            <p>{post.category.name}</p>
           </div>
           <p>{post.contentLink}</p>
         </div>
@@ -28,15 +28,15 @@ const Post = ({ post }) => {
               return (
                 <div className="comment">
                   <p className="comment-text">{item.text}</p>
-                  <p className="comment-user">- {item.postedBy}</p>
+                  <p className="comment-user">- {item.postedBy.username}</p>
                 </div>
               );
             })}
           </div>
         </div>
         <form className="comment-box">
-          <input className="btn" type="text" />
-          <button className="btn cmnt">Send</button>
+          <input type="text" />
+          <button className="cmnt">Send</button>
         </form>
       </div>
     </div>

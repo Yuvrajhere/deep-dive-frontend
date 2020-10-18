@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const handleSignoutClick = () => {
+    props.signout();
+  }
 
   return (
     <div className="Navbar">
@@ -30,8 +33,8 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <button className={isSignedIn ? "btn out" : "btn in"}>
-          <Link to={isSignedIn ? "signout" : "signin"}>{isSignedIn ? "Signout" : "Signin"}</Link>
+        <button onClick={handleSignoutClick} className={props.isSignedIn ? "btn out" : "btn in"}>
+          <Link to={props.isSignedIn ? "/" : "/signin"}>{props.isSignedIn ? "Signout" : "Signin"}</Link>
         </button>
       </nav>
     </div>

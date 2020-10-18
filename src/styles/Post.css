@@ -6,14 +6,14 @@
   margin-bottom: 2%;
   width: 100%;
   border-radius: 10px;
-  color: var(--color-2);
+  color: #ffffff;
   height: 100%;
 }
 
 .post-info {
   padding: 1% 4%;
   width: 60%;
-  border-right: 4px solid var(--color-2);
+  border-right: 4px solid #ffffff;
 }
 
 .post-info-user {
@@ -35,6 +35,7 @@
 
 .post-info-user div p {
   color: var(--color-4);
+  font-size: 1.1rem;
 }
 
 .post-info-artist {
@@ -54,7 +55,7 @@
 
 .post-info-artist div p {
   color: var(--color-4);
-  text-overflow: clip;
+  font-size: 1rem;
 }
 
 .comment-section {
@@ -103,4 +104,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.comment-box input {
+  color: #ffffff;
+  padding: 1% 2%;
+  background-color: #ffffff4d;
+  width: 50%;
+  border: none;
+  border-radius: 4px;
+}
+
+.cmnt {
+  align-self: flex-end;
+  padding: 2%;
+  width: 30%;
+  border-radius: 25px;
+  border: none;
+  color: var(--color-4);
+  cursor: pointer;
+}
+
+.cmnt:focus {
+  outline: none;
+  opacity: 0.7;
 }

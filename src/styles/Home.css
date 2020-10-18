@@ -1,8 +1,11 @@
 .Home {
   padding: 1% 15%;
-  /* background: linear-gradient(45deg, var(--color-2), var(--color-3)); */
-  background-color: #F8F9FA;
+  background-color: #ffffff;
   height: 90vh;
+}
+
+.Home h2 {
+  color: var(--color-4);
 }
 
 .Home ul {
