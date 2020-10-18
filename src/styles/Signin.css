@@ -1,8 +1,8 @@
-.PostForm {
+.Signin {
   padding: 5% 30%;
 }
 
-.PostForm form {
+.Signin form {
   background-color: var(--color-1);
   border-radius: 8px;
   padding: 6% 10%;
@@ -11,13 +11,13 @@
   flex-direction: column;
 }
 
-.PostForm form h3 {
+.Signin form h3 {
   color: #ffffff;
   text-align: center;
   margin-bottom: 4%;
 }
 
-.PostForm form div {
+.Signin form div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,25 +26,33 @@
   border-bottom: 1px solid #ffffff4d;
 }
 
-.PostForm form label {
+.Signin form label {
   color: #ffffff;
   font-size: 1.3rem;
 }
 
-.PostForm form input {
+.Signin form input {
   color: #000000;
   padding: 0.5% 2%;
   background-color: #ffffff4d;
+  width: 40%;
   border: none;
   border-radius: 4px;
-  width: 40%;
 }
 
-.PostForm form .post {
+.Signin form .post {
   margin-top: 4%;
+  margin-bottom: 4%;
   align-self: flex-end;
   width: 40%;
   border-radius: 25px;
   border: none;
   color: var(--color-4);
+}
+
+.Signin form p {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2%;
 }

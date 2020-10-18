@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import PostForm from "./components/PostForm";
+import Signup from "./components/Signup";
+import Signin from "./components/Signin";
 import "./App.css";
 
 
@@ -21,6 +23,12 @@ function App() {
         <Switch>
           <Route exact path="/create/post">
             <PostForm />
+          </Route>
+          <Route exact path="/signin">
+            <Signin />
+          </Route>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
           <Route exact path="/profile">
             <Profile />

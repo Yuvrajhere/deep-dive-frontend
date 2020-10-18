@@ -31,7 +31,7 @@ const Navbar = () => {
           </li>
         </ul>
         <button className={isSignedIn ? "btn out" : "btn in"}>
-          {isSignedIn ? "Signout" : "Signin"}
+          <Link to={isSignedIn ? "signout" : "signin"}>{isSignedIn ? "Signout" : "Signin"}</Link>
         </button>
       </nav>
     </div>
